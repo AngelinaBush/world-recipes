@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+body {
+  background: #faeaf675;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.intro {
+  background-image: url('abb.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  width: 60vh;
+  padding: 10px;
+}
+
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  width:400px;
+  margin-top: 5%;
+  border: 1px solid #FFEEEE;
+  border-start-end-radius: 25px;
+  background: #fddff3bd;
+  box-shadow: rgba(0, 0, 0, 0.148) 2.4px 2.4px 3.2px;
+}
+
+.recipe-header, .recipe-image {
+  align-self: center;
+}
+
+.recipe-header {
+  text-align: center;
+}
+
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-nutrition {
+  align-self: center;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+h1, h2, h3, input, ul, p {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  font-weight: bolder;
+  text-shadow: 2px 4px 3px rgba(128, 140, 156, 0.716);
+}
+
+.header-h2 {
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(128, 140, 156, 0.716);
+}
+
+h2 {
+  text-align: center;
+}
+
+.text {
+  border-bottom: 2px dotted #8675A9;
+}
+
+li {
+  text-align: justify;
+  margin-right: 5px;
+  list-style-type: circle;
+}
+
+.flip-main-container {
+  position: relative;
+  width:250px;
+  height: 250px;
+  margin: 20px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: rgba(239, 204, 255, 0.848);
+  color:#000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+
+  text-shadow: 2px 4px 3px rgba(183, 167, 167, 0.716);
+  box-shadow: rgba(139, 84, 137, 0.675) 0px 20px 30px -10px;
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: rgb(255, 244, 252);
+  border: 3px solid rgb(248, 156, 225);
+  box-shadow: rgba(139, 84, 137, 0.675) 0px 20px 30px -10px;
+  color:#000;
+  font-weight: bolder;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.flip-containers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flip-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flip-text {
+  text-align: center;
+  font-size: 25px;
+}
+
+
+@media all and (max-width:500px) {
+    input {
+      width: 40vh;
+    }
+
+    .intro {
+      background-size: 200%;
+    }
 }
