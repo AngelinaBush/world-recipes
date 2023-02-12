@@ -5,9 +5,6 @@ import SearchedRecipesComponent from './SearchedRecipesComponent';
 
 function App() {
 
-const API_ID = `554997de`;  
-const API_KEY = `cd004ad3bfa23c3ed3c06361eb4a1590`;
-
 const [search, setSearch] = useState('');
 const [wordSubmit, setWordSumbit] = useState('raspberry');
 const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -15,10 +12,12 @@ const [searchedRecipes, setSearchedRecipes] = useState([]);
 
 useEffect(() => {
   const getRecipe = async() => {
+    const API_ID = `554997de`;  
+    const API_KEY = `cd004ad3bfa23c3ed3c06361eb4a1590`;
     const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmit}&app_id=${API_ID}&app_key=${API_KEY}`);
     const data = await response.json();
-    console.log(data.hits)
     setSearchedRecipes(data.hits)
+    console.log(data.hits)
   }
   getRecipe()
 }, [wordSubmit])
@@ -26,12 +25,11 @@ useEffect(() => {
 
 const myRecipeSearch = (e) => {
   setSearch(e.target.value)
-  console.log(e.target.value)
 }
 
 const submitName = (e) => {
   e.preventDefault();
-  setWordSumbit(search)
+  setWordSumbit(search);
 }
 
 
@@ -57,9 +55,8 @@ const submitName = (e) => {
       <Flip/>
 
       <div className='recipes-container'>
-        {searchedRecipes.map(element => (
-          <SearchedRecipesComponent 
-          id={element}
+        {searchedRecipes.map((element, id) => (
+          <SearchedRecipesComponent key={id}
           label={element.recipe.label} 
           image={element.recipe.image}
           ingredients={element.recipe.ingredientLines}
@@ -69,9 +66,7 @@ const submitName = (e) => {
           protein={element.recipe.totalNutrients.PROCNT.quantity}
           carbohydrates={element.recipe.totalNutrients.CHOCDF.quantity}/>
         ))}
-    
       </div>
-      
     </div>
   );
 }

@@ -11,9 +11,9 @@ function SearchedRecipesComponent({label, image, ingredients, calories, weight, 
                 <img src={image} alt="food" width="300px" height="300px"/> 
             </div>
 
-            <ul className="recipe-list" key={id}>
-                {ingredients.map(ingredient => (
-                    <li>{ingredient}</li>
+            <ul className="recipe-list">
+                {ingredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
                 ))}
             </ul>
 
